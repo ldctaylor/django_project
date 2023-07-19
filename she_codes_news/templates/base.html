@@ -1,13 +1,12 @@
-<!doctype html>
+{% load static %}
 
-<html lang="en">
     <head>
         <meta charset="utf-8">
         <title>She Codes News</title>
         <meta name="description" content="">
-        <meta name="author" content="Hayley van Waas">
+        <meta name="author" content="Leah Cohen Taylor">
         <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
     </head>
 
     <body>
@@ -20,6 +19,5 @@
             <!-- include nav here -->
         </header>
 
-        <!-- content blocks here -->
+        {% block content %}{% endblock %}
     </body>
-</html>
