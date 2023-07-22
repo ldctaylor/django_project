@@ -1,0 +1,15 @@
+<!-- users/templates/users/viewAccount.html -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+    <h2>Account Profile</h2>
+    <p><em>Username: </em> {{ user.username }}</p>
+    <p><em>Email: </em> {{ user.email }}</p>
+    <a href="{% url 'logout' %}">Logout</a>
+{% else %}
+    <h1>You do not have permission to view this page.</h1>
+{% endif %}
+{% endblock %}

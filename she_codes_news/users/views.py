@@ -8,3 +8,10 @@ class CreateAccountView(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'users/createAccount.html'
+
+class ViewAccountProfile(generic.DetailView):
+    template_name = 'users/viewAccount.html'
+    model = CustomUser
+
+    def get_object(self):
+        return CustomUser.objects.get(id=self.request.user.id)
