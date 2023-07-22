@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+    <h3>Submit a Story</h3>
     <form action = "" method = "post">
         {% csrf_token %}
         {{ form.as_p }}

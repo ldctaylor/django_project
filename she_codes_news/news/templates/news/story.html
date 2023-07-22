@@ -9,9 +9,9 @@
 
 <div id="story-wrapper">
     <h2>{{ story.title }}</h2>
-    <h4>{{ story.author }}</h4>
+    <h4>Written by {{ story.author }} on {{ story.pub_date|date:'d F Y' }}</h4>
     <div id="story-content">
-        <img src="{% static '/news/images/placeholder-5.jpg' %}">
+        <img src="{{ story.img_url }}">
         {{ story.content|linebreaks }}
     </div>
 </div>
