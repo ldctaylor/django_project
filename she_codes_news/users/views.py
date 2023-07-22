@@ -12,6 +12,7 @@ class CreateAccountView(CreateView):
 class ViewAccountProfile(generic.DetailView):
     template_name = 'users/viewAccount.html'
     model = CustomUser
+    context_object_name = "user"
 
     def get_object(self):
         return CustomUser.objects.get(id=self.request.user.id)
