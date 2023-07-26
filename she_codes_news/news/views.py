@@ -1,10 +1,17 @@
 from django.views import generic
 from django.urls import reverse_lazy
 from .models import NewsStory
+from users.models import CustomUser
 from .forms import StoryForm
+from django.shortcuts import render     
 
-
-class IndexView(generic.ListView):
+def StoriesByAuthor(request, author_id):
+    storiesbyauthor = NewsStory.objects.filter(author_id=author_id)
+    author = CustomUser.objects.get(id=author_id)
+    context = {"stories_by_author": storiesbyauthor, "author": author}
+    return render(request, 'news/author.html', context)
+    
+class IndexView(generic.ListView):  
     template_name = 'news/index.html'
     context_object_name = "all_stories"
 

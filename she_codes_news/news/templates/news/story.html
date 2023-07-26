@@ -5,15 +5,15 @@
   <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
 {% endblock %}
 
-{% block content %}
+{% block content %}  
 
 <div id="story-wrapper">
-    <h2>{{ story.title }}</h2>
-    <h4>Written by {{ story.author }} on {{ story.pub_date|date:'d F Y' }}</h4>
-    <div id="story-content">
-        <img src="{{ story.img_url }}">
-        {{ story.content|linebreaks }}
-    </div>
+  <h2>{{ story.title }}</h2>
+  <h4>Written by <a href="{% url 'news:storiesbyauthor' story.author_id %}">{{ story.author }}</a> on {{ story.pub_date|date:'d F Y' }}</h4>
+  <div id="story-content">
+      <img src="{{ story.img_url }}">
+      {{ story.content|linebreaks }}
+  </div>
 </div>
 
 {% endblock %}
